@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="corporate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakePNGKiller</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+<nav class="py-4">
+    <div class="container mx-auto px-4 flex items-center">
+        <h1 class="text-2xl font-bold">FakePNGKiller</h1>
+        <p class="pt-1 pl-2 text-gray-500"><a href="https://github.com/LuigiValentino/FakePNGkiller"><i class="fas fa-code-branch"></i> 1.0</a></p>
+    </div>
+</nav>
+<div class="container mx-auto mt-40 px-6 flex flex-col items-center">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-3xl ">
+        <h2 class="text-2xl font-bold mb-4">Eliminar Fondo de Imagen con FakePNGKiller</h2>
+        <form method="post" enctype="multipart/form-data" class="flex items-center space-x-4 mt-8">
+            <input type="file" name="file" accept="image/*" required class="border border-gray-300 px-4 py-2 rounded-lg">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-200 flex items-center">
+                <i class="fas fa-cut mr-2"></i> Eliminar Fondo
+            </button>
+        </form>
+        {% if image_url %}
+        <div class="mt-8">
+            <h3 class="text-lg font-bold mb-2">Imagen Procesada:</h3>
+            <img src="{{ image_url }}" alt="Imagen Procesada" class="w-full h-auto rounded-lg shadow-lg">
+            <a href="{{ image_url }}" download="_rmbg.png" class="block bg-gray-200 text-gray-800 px-4 py-2 rounded-lg mt-4 hover:bg-gray-300 transition duration-200 text-center">
+                <i class="fas fa-download mr-2"></i> Descargar Imagen Procesada
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    <div class="divider divider-neutral mt-40"></div>
+    <div class="text-center text-gray-800 px-6 mt-8">
+        <p class="text-lg leading-relaxed">FakePNGKiller es una aplicación web con inteligencia artificial diseñada para eliminar el fondo de las imágenes, dejándote con imágenes PNG limpias y transparentes. Ya seas diseñador, fotógrafo o aficionado, FakePNGKiller simplifica el proceso de eliminación de fondos utilizando tecnología avanzada de aprendizaje automático.</p>
+        <p class="text-lg leading-relaxed mt-4">Sube una imagen, haz clic en "Eliminar Fondo" y obtén al instante una imagen transparente lista para usar en tus proyectos. Utilizamos Flask, un microframework web para Python, combinado con la <a href="https://github.com/danielgatis/rembg/tree/main" class="underline">biblioteca rembg</a> para ofrecer resultados rápidos y precisos.</p>
+    </div>
+</div>
+<footer class="py-4 mt-auto">
+    <div class="container mx-auto px-4 text-center">
+            <p>| &copy; 2024 <a href="https://luigiadducci.netlify.app" class="underline">Luigi Adducci</a> |</p> 
+    </div>
+</footer>
+<script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
